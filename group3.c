@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ctype.h>
 
-// Password generator function
 void generatePassword(int length, int useUpper, int useLower, int useDigit, int useSpecial) {
     char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower[] = "abcdefghijklmnopqrstuvwxyz";
@@ -31,7 +30,6 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     printf("Generated Password: %s\n", password);
 }
 
-// Password strength checker function
 void checkPasswordStrength(const char *password) {
     int hasUpper = 0, hasLower = 0, hasDigit = 0, hasSpecial = 0;
     int len = strlen(password);
@@ -63,7 +61,7 @@ int main() {
         printf("3. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        getchar(); // clear newline
+        getchar(); 
 
         if (choice == 1) {
             int length, upper, lower, digit, special;
@@ -82,7 +80,7 @@ int main() {
             char password[100];
             printf("Enter password to check: ");
             fgets(password, sizeof(password), stdin);
-            password[strcspn(password, "\n")] = 0; // remove newline
+            password[strcspn(password, "\n")] = 0; 
             checkPasswordStrength(password);
         } else if (choice == 3) {
             printf("Goodbye!\n");
