@@ -4,12 +4,21 @@
 #include <string.h>
 #include <ctype.h>
 
+void printCentered(char *text, int width) {
+    int pad = (width - strlen(text)) / 2;
+    for (int i = 0; i < pad; i++) {
+        printf(" ");
+    }
+    printf("%s\n", text);
+}
+
 void generatePassword(int length, int useUpper, int useLower, int useDigit, int useSpecial) {
     char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower[] = "abcdefghijklmnopqrstuvwxyz";
     char digits[] = "0123456789";
     char special[] = "!@#$%^&*()";
     char pool[100] = "";
+    
     if (useUpper) strcat(pool, upper);
     if (useLower) strcat(pool, lower);
     if (useDigit) strcat(pool, digits);
@@ -54,6 +63,14 @@ void checkPasswordStrength(const char *password) {
 
 int main() {
     int choice;
+
+    printCentered("\33[1;32m                  DDDDDDD     IIIIIII      GGGGG      IIIIIII   TTTTTTTTT       AAA         LLLL        IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m",120);
+    printCentered("\33[1;32m                    DD  DDD     III      GGG            III        TTT        AAA AAA       LLLL          III          ZZZ   EE\033[0m",120);
+    printCentered("\33[1;32m                    DD   DDD    III     GGG             III        TTT       AAA   AAA      LLLL          III         ZZZ    EEEEEEE\033[0m",120);
+    printCentered("\33[1;32m                    DD   DDD    III     GGG  GGGGG      III        TTT      AAAAAAAAAAA     LLLL          III       ZZZ      EEEEEEE\033[0m",120);
+    printCentered("\33[1;32m                    DD  DDD     III      GGG  GG G      III        TTT     AAAAAAAAAAAAA    LLLLLLLLL     III      ZZZ       EE\033[0m",120);
+    printCentered("\33[1;32m                  DDDDDDD     IIIIIII      GGGGG G    IIIIIII      TTT    AAA         AAA   LLLLLLLLL   IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m",120);
+    
     while (1) {
         printf("\nPassword Utility\n");
         printf("1. Generate Password\n");
@@ -61,7 +78,7 @@ int main() {
         printf("3. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        getchar(); 
+        getchar();
 
         if (choice == 1) {
             int length, upper, lower, digit, special;
@@ -76,16 +93,22 @@ int main() {
             printf("Include special characters? (1-Yes, 0-No): ");
             scanf("%d", &special);
             generatePassword(length, upper, lower, digit, special);
-        } else if (choice == 2) {
+        } 
+        
+        else if (choice == 2) {
             char password[100];
             printf("Enter password to check: ");
             fgets(password, sizeof(password), stdin);
-            password[strcspn(password, "\n")] = 0; 
+            password[strcspn(password, "\n")] = 0;
             checkPasswordStrength(password);
-        } else if (choice == 3) {
+        } 
+        
+        else if (choice == 3) {
             printf("Goodbye!\n");
             break;
-        } else {
+        } 
+        
+        else {
             printf("Invalid choice. Try again.\n");
         }
     }
