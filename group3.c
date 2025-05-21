@@ -25,7 +25,7 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     if (useSpecial) strcat(pool, special);
 
     if (strlen(pool) == 0) {
-        printf("No character sets selected.\n");
+        printf("No character sets selected.\n\n\n");
         return;
     }
 
@@ -36,7 +36,7 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
         password[i] = pool[idx];
     }
     password[length] = '\0';
-    printf("Generated Password: %s\n", password);
+    printf("Generated Password: %s\n\n\n", password);
 }
 
 void checkPasswordStrength(const char *password) {
@@ -52,13 +52,13 @@ void checkPasswordStrength(const char *password) {
 
     printf("Password Strength: ");
     if (len < 8)
-        printf("Weak (too short)\n");
+        printf("Weak (too short)\n\n\n");
     else if (hasUpper && hasLower && hasDigit && hasSpecial)
-        printf("Strong\n");
+        printf("Strong\n\n\n");
     else if ((hasUpper || hasLower) && hasDigit && hasSpecial)
-        printf("Moderate\n");
+        printf("Moderate\n\n\n");
     else
-        printf("Weak\n");
+        printf("Weak\n\n\n");
 }
 
 int main() {
@@ -104,12 +104,12 @@ int main() {
         } 
         
         else if (choice == 3) {
-            printf("Goodbye!\n");
+            printf("Goodbye!\n\n\n");
             break;
         } 
         
         else {
-            printf("Invalid choice. Try again.\n\n");
+            printf("Invalid choice. Try again.\n\n\n");
         }
     }
     return 0;
