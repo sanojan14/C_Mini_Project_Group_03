@@ -109,7 +109,7 @@ int main() {
         } 
         
         else {
-            printf("Invalid choice. Try again.\n");
+            printf("Invalid choice. Try again.\n\n");
         }
     }
     return 0;
