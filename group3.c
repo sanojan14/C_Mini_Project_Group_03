@@ -95,12 +95,13 @@ int main() {
             generatePassword(length, upper, lower, digit, special);
         } 
         
-        else if (choice == 2) {
+      else if (choice == 2) {
             char password[100];
-            printf("Enter password to check: ");
+            printf("                   Enter password to check: ");
             fgets(password, sizeof(password), stdin);
             password[strcspn(password, "\n")] = 0;
             checkPasswordStrength(password);
+
         } 
         
         else if (choice == 3) {
