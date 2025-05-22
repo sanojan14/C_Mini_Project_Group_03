@@ -9,7 +9,7 @@ void printCentered(char *text, int width) {
     for (int i = 0; i < pad; i++) {
         printf(" ");
     }
-    printf("%s\n", text);
+    printf("%s\n",   text);
 }
 
 void generatePassword(int length, int useUpper, int useLower, int useDigit, int useSpecial) {
