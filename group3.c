@@ -3,6 +3,11 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
+#include <windows.h>
+
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
 
 void printCentered(char *text, int width) {
     int pad = (width - strlen(text)) / 2;
@@ -38,6 +43,16 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     printf("                   Generated Password: %s\n\n\n", password);
 }
 
+//enabil
+void enableVirtualTerminal() {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    GetConsoleMode(hOut, &dwMode);
+    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    SetConsoleMode(hOut, dwMode);
+}
+
+
 void checkPasswordStrength(const char *password) {
     int hasUpper = 0, hasLower = 0, hasDigit = 0, hasSpecial = 0;
     int len = strlen(password);
@@ -61,6 +76,8 @@ void checkPasswordStrength(const char *password) {
 }
 
 int main() {
+
+    enableVirtualTerminal();
     int choice;
 
     printCentered("\33[1;32m                  DDDDDDD     IIIIIII      GGGGG      IIIIIII   TTTTTTTTT       AAA         LLLL        IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m",120);
