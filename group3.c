@@ -218,7 +218,7 @@ int main() {
         
         else if (choice == 3) {
             printf("Goodbye!\n");
-            break;
+            
         } 
         
         else {
