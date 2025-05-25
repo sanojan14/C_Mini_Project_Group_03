@@ -21,7 +21,7 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower[] = "abcdefghijklmnopqrstuvwxyz";
     char digits[] = "0123456789";
-    char special[] = "!@#$%^&*()";
+    char special[] = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
     char pool[100] = "";
     if (useUpper) strcat(pool, upper);
     if (useLower) strcat(pool, lower);
