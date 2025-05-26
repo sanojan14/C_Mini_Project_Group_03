@@ -22,7 +22,7 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     char lower[] = "abcdefghijklmnopqrstuvwxyz";
     char digits[] = "0123456789";
     char special[] = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
-    char pool[100] = "";
+    char pool[200] = "";
     if (useUpper) strcat(pool, upper);
     if (useLower) strcat(pool, lower);
     if (useDigit) strcat(pool, digits);
