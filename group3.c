@@ -21,8 +21,8 @@ void generatePassword(int length, int useUpper, int useLower, int useDigit, int 
     char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char lower[] = "abcdefghijklmnopqrstuvwxyz";
     char digits[] = "0123456789";
-    char special[] = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
-    char pool[200] = "";
+    char special[] = "!@#$%^&*()";
+    char pool[100] = "";
     if (useUpper) strcat(pool, upper);
     if (useLower) strcat(pool, lower);
     if (useDigit) strcat(pool, digits);
@@ -80,21 +80,22 @@ int main() {
     enableVirtualTerminal();
     int choice;
 
-    printCentered("\33[1;32m                  DDDDDDD     IIIIIII      GGGGG      IIIIIII   TTTTTTTTT       AAA         LLLL        IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m",120);
-    printCentered("\33[1;32m                    DD  DDD     III      GGG            III        TTT        AAA AAA       LLLL          III          ZZZ   EE\033[0m",120);
-    printCentered("\33[1;32m                    DD   DDD    III     GGG             III        TTT       AAA   AAA      LLLL          III         ZZZ    EEEEEEE\033[0m",120);
-    printCentered("\33[1;32m                    DD   DDD    III     GGG  GGGGG      III        TTT      AAAAAAAAAAA     LLLL          III       ZZZ      EEEEEEE\033[0m",120);
-    printCentered("\33[1;32m                    DD  DDD     III      GGG  GG G      III        TTT     AAAAAAAAAAAAA    LLLLLLLLL     III      ZZZ       EE\033[0m",120);
-    printCentered("\33[1;32m                  DDDDDDD     IIIIIII      GGGGG G    IIIIIII      TTT    AAA         AAA   LLLLLLLLL   IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m\n",120);
+    printf("\33[1;32m                            DDDDDDD     IIIIIII      GGGGG      IIIIIII   TTTTTTTTT       AAA         LLLL        IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m\n");
+    printf("\33[1;32m                              DD  DDD     III      GGG            III        TTT        AAA AAA       LLLL          III          ZZZ   EE\033[0m\n");
+    printf("\33[1;32m                              DD   DDD    III     GGG             III        TTT       AAA   AAA      LLLL          III         ZZZ    EEEEEEE\033[0m\n");
+    printf("\33[1;32m                              DD   DDD    III     GGG  GGGGG      III        TTT      AAAAAAAAAAA     LLLL          III       ZZZ      EEEEEEE\033[0m\n");
+    printf("\33[1;32m                              DD  DDD     III      GGG  GG G      III        TTT     AAAAAAAAAAAAA    LLLLLLLLL     III      ZZZ       EE\033[0m\n");
+    printf("\33[1;32m                            DDDDDDD     IIIIIII      GGGGG G    IIIIIII      TTT    AAA         AAA   LLLLLLLLL   IIIIIII   ZZZZZZZZZ  EEEEEEE\033[0m\n\n");
+
     while (1) {
-        printCentered("Password Utility\n",120);
-        printCentered("\33[1;31m###############################################\033[0m",160);
-        printCentered("\33[1;31m#                                             #\033[0m",160);
-        printCentered("\33[1;31m#           1. Generate Password              #\033[0m",160);
-        printCentered("\33[1;31m#           2. Check Password Strength        #\033[0m",160);
-        printCentered("\33[1;31m#           3. Exit                           #\033[0m",160);
-        printCentered("\33[1;31m#                                             #\033[0m",160);
-        printCentered("\33[1;31m###############################################\033[0m",160);
+        printCentered("Password Utility\n",130);
+        printCentered("\33[1;31m###############################################\033[0m",180);
+        printCentered("\33[1;31m#                                             #\033[0m",180);
+        printCentered("\33[1;31m#           1. Generate Password              #\033[0m",180);
+        printCentered("\33[1;31m#           2. Check Password Strength        #\033[0m",180);
+        printCentered("\33[1;31m#           3. Exit                           #\033[0m",180);
+        printCentered("\33[1;31m#                                             #\033[0m",180);
+        printCentered("\33[1;31m###############################################\033[0m",180);
         printf("\n                   Enter your choice: ");
         scanf("%d", &choice);
         getchar();
